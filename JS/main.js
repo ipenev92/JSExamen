@@ -61,3 +61,31 @@ const ricknillos = new TokenContract(rick);
 ricknillos.setName("Ricknillos");
 ricknillos.setSymbol("RNiLL");
 ricknillos.setTotalSupply(100);
+
+console.log("\n" + "Contrato de los Ricknillos" + "\n" + "==========================");
+ricknillos.info();
+
+/**
+* El contrato TokenContract contiene una tabla de balances 
+* de token por propietario:
+* mapping(propietario => numero de unidades que posee)
+* Permite al contrato llevar el seguimiento de quien
+* posee las entradas.
+* Cada transferencia de entradas entre propietarios es 
+* una deducción en un balance y una adicion en el otro.
+* 
+* Crea una tabla "balances" que mapee cada propietario 
+* (su Public Key) al numero de tokens que posee.
+* Añade a Rick con sus 100 entradas.
+* Asegurate de que si el propietario (su Public Key) 
+* ya existe en la tabla, sus unidades no se actualicen.
+* 
+* addOwner()
+* añade el propietario inicial de todos los tokens de este contrato
+* @param PublicKey del propietario
+* @param cantidad de tokens que posee
+*/
+
+ricknillos.addOwner(rick.pk, ricknillos.totalSupply);
+ricknillos.addOwner(morty.pk, 0);
+console.log(ricknillos.balances);
