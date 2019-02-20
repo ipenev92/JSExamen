@@ -7,6 +7,7 @@ const TokenContract = require('./token.js');
 * El balance de enZinium de su direccion es cero
 * El simbolo del enZinium es EZI
 */
+
 const rick = new Address();
 
 /**
@@ -15,6 +16,7 @@ const rick = new Address();
 * Utiliza el metodo hashCode() de PublicKey para 
 * mostrar la PublicKey en consola 
 */
+
 console.log("\n" + "Address de Rick" + "\n" + "===============");
 rick.info();
 
@@ -89,7 +91,6 @@ ricknillos.info();
 ricknillos.addOwner(rick.pk, ricknillos.totalSupply);
 ricknillos.addOwner(morty.pk, 0);
 
-
 //verifica que Rick no se actualiza una vez que ya existe en el balance
 //ricknillos.addOwner(rick.pk, 500);
 //console.log(ricknillos.balances);
@@ -107,7 +108,7 @@ ricknillos.addOwner(morty.pk, 0);
 * el propietario, devuelve cero.
 */
 
-console.log("\n" + "Consulta de balances" + "\n" + "====================")
+console.log("\n" + "Consulta de balances" + "\n" + "====================");
 ricknillos.numOwners();
 ricknillos.balanceOf(rick.pk);
 ricknillos.balanceOf(morty.pk);
@@ -141,8 +142,8 @@ ricknillos.transfer(morty.pk, 300);
 
 // Morty vuelve a comprar un par de entradas mas
 ricknillos.transfer(morty.pk, 2);
-console.log("2 entradas mas para Morty:")
-ricknillos.balanceOf(morty.pk)
+console.log("2 entradas mas para Morty:");
+ricknillos.balanceOf(morty.pk);
 
 /**
 * A veces, hay reventa ;)
@@ -159,7 +160,7 @@ ricknillos.balanceOf(morty.pk)
 */
 
 console.log("\n" + "Reventa de entradas" + "\n" + "===================");
-ricknillos.addOwner(jen.pk, 0)
+ricknillos.addOwner(jen.pk, 0);
 ricknillos.transferFrom(morty.pk, jen.pk, 1);
 ricknillos.balanceOf(morty.pk);
 ricknillos.balanceOf(jen.pk);
@@ -185,6 +186,7 @@ ricknillos.owners();
 * totalTokensSold()
 * @return numero de tokens (entradas) vendidos
 */
+
 ricknillos.totalTokensSold();
 
 /**
@@ -202,7 +204,7 @@ ricknillos.totalTokensSold();
 */
 
 morty.addEZI(20);
-console.log("\n" + "Recarga eZis de Morty" + "\n" + "=====================")
+console.log("\n" + "Recarga eZis de Morty" + "\n" + "=====================");
 morty.info();
 
 /** 
@@ -243,10 +245,10 @@ morty.send(ricknillos, 10);
 console.log("\n");
 ricknillos.owners();
 
-console.log("\n" + "Address de Rick" + "\n" + "===============")
+console.log("\n" + "Address de Rick" + "\n" + "===============");
 rick.info();
 
-console.log("\n" + "Address de Morty" + "\n" + "===============")
+console.log("\n" + "Address de Morty" + "\n" + "===============");
 morty.info();
 
 console.log("\n");
@@ -255,5 +257,5 @@ console.log("\n");
 morty.send(ricknillos, 3);
 ricknillos.balanceOf(morty.pk);
 console.log("y Rick no recibe EZI => sigue con 10:", rick.balance);
-console.log("y Rick sigue con sus 94 entradas: ")
+console.log("y Rick sigue con sus 94 entradas: ");
 ricknillos.balanceOf(rick.pk);

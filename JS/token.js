@@ -32,11 +32,11 @@ class TokenContract {
 			} else {
 				user = "Morty";
 			}
-			console.log("Entradas de", user + ":", this.balances[person], this.symbol)
+			console.log("Entradas de", user + ":", this.balances[person], this.symbol);
 		}
 		this.transfer = function(recipient, tokens) {
 			if (this.balances[this.owner.pk] < tokens) {
-				console.log("Rick no tiene", tokens, "entradas => entradas de Morty:", this.balances[recipient], this.symbol)
+				console.log("Rick no tiene", tokens, "entradas => entradas de Morty:", this.balances[recipient], this.symbol);
 			} else {
 				this.balances[this.owner.pk] -= tokens;
 				this.balances[recipient] += tokens;
@@ -53,7 +53,7 @@ class TokenContract {
 		this.owners = function() {
 			for (let key in this.balances) {
 				if (this.balances[key] !== this.owner.pk) {
-				console.log("Owner: " + key, this.balances[key], this.symbol)
+				console.log("Owner: " + key, this.balances[key], this.symbol);
 				}
 			}
 		}
@@ -63,7 +63,7 @@ class TokenContract {
 		this.payable = function(recipient, ezi) {
 			let tickets = ezi / 5;
 			if (ezi / 5 < 1) {
-				console.log("Morty no paga suficientes EZI por una entrada" + "\n => sigue teniendo 5 entradas: ")
+				console.log("Morty no paga suficientes EZI por una entrada" + "\n => sigue teniendo 5 entradas: ");
 			} else {
 				this.balances[recipient] += tickets;
 				this.balances[this.owner.pk] -= tickets;
