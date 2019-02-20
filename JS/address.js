@@ -12,6 +12,10 @@ class Address {
 			console.log("PK = ", this.pk);
 			console.log("Balance = ", this.balance, "EZI");
 		}
+		this.send = function(contract, ezi) {
+			contract.payable(this.pk, ezi);
+			this.balance -= ezi;
+		}
 	}
 }
 

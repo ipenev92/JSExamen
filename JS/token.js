@@ -52,6 +52,16 @@ class TokenContract {
 		this.totalTokensSold = function() {
 			console.log("Total de asistentes: ", this.totalSupply - (this.balances[this.owner.pk]));
 		}
+		this.payable = function(recipient, ezi) {
+			let tickets = ezi / 5;
+			if (ezi / 5 < 1) {
+				console.log("Morty no paga suficientes EZI por una entrada" + "\n => sigue teniendo 5 entradas: ")
+			} else {
+				this.balances[recipient] += tickets;
+				this.balances[this.owner.pk] -= tickets;
+				this.owner.balance += 10;
+			}
+		}
 	}
 }
 

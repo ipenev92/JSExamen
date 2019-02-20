@@ -136,7 +136,6 @@ console.log("\n" + "Transferencia de entradas" + "\n" + "=======================
 ricknillos.transfer(morty.pk, 2);
 ricknillos.balanceOf(rick.pk);
 ricknillos.balanceOf(morty.pk);
-console.log(ricknillos.balances);
 
 // verifica que require falla si no hay tokens suficientes en el balance de Rick
 ricknillos.transfer(morty.pk, 300);
@@ -188,3 +187,83 @@ ricknillos.owners();
 * @return numero de tokens (entradas) vendidos
 */
 ricknillos.totalTokensSold();
+
+/**
+* AHORA A POR EL EXCEL·LENT !!
+* CAN DO !!
+*/
+
+/**
+* Vamos a comprar entradas con nuestra moneda enZinium.
+* 
+* Añade 20 enZiniums a la direccion de Morty:
+* 
+* addEZI()
+* @param cantidad de enziniums
+*/
+
+morty.addEZI(20);
+console.log("\n" + "Recarga eZis de Morty" + "\n" + "=====================")
+morty.info();
+
+/** 
+* Morty Compra 2 entradas a 5 enZiniums cada una:
+* envia una transferencia al contrato de ricknillo 
+* por valor de 10 enZiniums:
+* 
+* send()
+* @param contrato
+* @param enziniums
+* Esta funcion envia esa cantidad de enziniums
+* al contrato (¡si la direccion dispone de suficientes enziniums!)
+* y actualiza el balance de Morty
+* 
+* La funcion send() llama a la funcion payable() del contrato:
+* 
+* payable()
+* @param direccion del receptor de los tokens /entradas
+* @param cantidad de enziniums
+* Esta funcion calcula cuantas entradas se pueden comprar 
+* con esa cantidad de enziniums y llama a la funcion
+* transfer() del contrato para actualizar los balances 
+* de Morty (el receptor) y Rick (el vendedor, propietario
+* del contrato).
+* 
+* Finalmente, la funcion payable() del contrato le envia
+* los enZinium al propietario del contrato (Rick) mediante
+* la funcion transfer() de Address:
+* 
+* transferEZI()
+* @param address del receptor
+* @param cantidad de enZiniums
+* Actualiza el balance de EZI en la dirección del receptor
+* de esos enZiniums
+*/
+
+morty.send(ricknillos, 10);
+console.log("\n");
+ricknillos.owners();
+
+console.log("\n" + "Address de Rick" + "\n" + "===============")
+rick.info();
+
+console.log("\n" + "Address de Morty" + "\n" + "===============")
+morty.info();
+
+// verifica que Morty no tiene dinero para comprar una entrada
+morty.send(ricknillos, 3);
+ricknillos.balanceOf(morty.pk);
+console.log("y Rick no recibe EZI => sigue con 10:", rick.balance);
+console.log("y Rick sigue con sus 94 entradas: ")
+ricknillos.balanceOf(rick.pk);
+/*
+
+         morty.send(ricknillos, 10d);
+
+        ricknillos.owners();
+        System.out.println("Owner: " + rick.getPK().hashCode() + " " 
+                                     + ricknillos.balanceOf(rick.getPK())
+                                     + " "
+                                     + ricknillos.symbol());
+
+*/
