@@ -20,5 +20,11 @@ class TokenContract {
 		this.addOwner = function(pk, tokens) {
 			this.balances[pk] = tokens;
 		}
+		this.numOwners = function() {
+			console.log("Numero de propietarios:", Object.keys(this.balances).length);
+		}
+		this.balanceOf = function(owner) {
+			console.log("Entradas de", owner + ":", this.balances[owner], this.symbol)
+		}
 	}
 }

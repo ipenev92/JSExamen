@@ -89,3 +89,26 @@ ricknillos.info();
 ricknillos.addOwner(rick.pk, ricknillos.totalSupply);
 ricknillos.addOwner(morty.pk, 0);
 console.log(ricknillos.balances);
+
+
+//verifica que Rick no se actualiza una vez que ya existe en el balance
+//ricknillos.addOwner(rick.pk, 500);
+//console.log(ricknillos.balances);
+
+/**
+* Consulta los balances
+* 
+* numOwners()
+* @return numero de propietarios registrados en la tabla balances
+* 
+* balanceOf()
+* @param PublicKey del propietario
+* @return cantidad de tokens que posee
+* Dada una direccion, devuelve su balance de tokens. Si no existe 
+* el propietario, devuelve cero.
+*/
+
+console.log("\n" + "Consulta de balances" + "\n" + "====================")
+ricknillos.numOwners();
+ricknillos.balanceOf(rick.pk);
+ricknillos.balanceOf(morty.pk);
