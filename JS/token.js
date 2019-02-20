@@ -34,6 +34,24 @@ class TokenContract {
 				this.balances[recipient] += tokens;
 			}
 		}
+		this.transferFrom = function(sender, recipient, tokens) {
+			if (this.balances[sender] < tokens) {
+				console.log('error');
+			} else {
+				this.balances[sender] -= tokens;
+				this.balances[recipient] += tokens;
+			}
+		}
+		this.owners = function() {
+			for (let key in this.balances) {
+				if (this.balances[key] !== this.owner.pk) {
+				console.log("Owner: " + key, this.balances[key], this.symbol)
+				}
+			}
+		}
+		this.totalTokensSold = function() {
+			console.log("Total de asistentes: ", this.totalSupply - (this.balances[this.owner.pk]));
+		}
 	}
 }
 

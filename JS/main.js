@@ -136,6 +136,7 @@ console.log("\n" + "Transferencia de entradas" + "\n" + "=======================
 ricknillos.transfer(morty.pk, 2);
 ricknillos.balanceOf(rick.pk);
 ricknillos.balanceOf(morty.pk);
+console.log(ricknillos.balances);
 
 // verifica que require falla si no hay tokens suficientes en el balance de Rick
 ricknillos.transfer(morty.pk, 300);
@@ -144,3 +145,46 @@ ricknillos.transfer(morty.pk, 300);
 ricknillos.transfer(morty.pk, 2);
 console.log("2 entradas mas para Morty:")
 ricknillos.balanceOf(morty.pk)
+
+/**
+* A veces, hay reventa ;)
+* 
+* Morty le vende 1 entrada a Jen.
+* 
+* Dado un remitente, un destinatario, y una cantidad, 
+* se transfieren tokens de una direccion a la otra.
+*   
+* transfer()
+* @param sender PK
+* @param recipient PK
+* @param cantidad de tokens
+*/
+
+console.log("\n" + "Reventa de entradas" + "\n" + "===================");
+ricknillos.addOwner(jen.pk, 0)
+ricknillos.transferFrom(morty.pk, jen.pk, 1);
+ricknillos.balanceOf(morty.pk);
+ricknillos.balanceOf(jen.pk);
+
+/**
+* Llega el dia del concierto y Rick quiere
+* controlar el acceso a la sala de conciertos.
+* Muestra una lista de compradores con el número de entradas
+* que han adquirido (excluyendo a Rick).
+* 
+* owners()
+* @return muestra en consola la PublicKey de los compradores
+*         y el numero de tokens que han adquirido
+*/
+
+console.log("\n" + "Lista de compradores" + "\n" + "====================");
+ricknillos.owners();
+
+/**
+* Calcula el numero de asistentes al concierto (excluyendo a Rick),
+* es decir, el numero de entradas vendidas.
+* 
+* totalTokensSold()
+* @return numero de tokens (entradas) vendidos
+*/
+ricknillos.totalTokensSold();

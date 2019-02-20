@@ -121,14 +121,14 @@ public class App {
         
         /**
          * Consulta los balances
-         * 
+         *
          * numOwners()
          * @return numero de propietarios registrados en la tabla balances
-         * 
+         *
          * balanceOf()
          * @param PublicKey del propietario
          * @return cantidad de tokens que posee
-         * Dada una direccion, devuelve su balance de tokens. Si no existe 
+         * Dada una direccion, devuelve su balance de tokens. Si no existe
          * el propietario, devuelve cero.
          */
         System.out.println("\n" + "Consulta de balances" + "\n" + 
@@ -235,10 +235,10 @@ public class App {
          *         y el numero de tokens que han adquirido
          */
 
-        System.out.println("\n" + "Lista de compradores" + "\n" + 
+        System.out.println("\n" + "Lista de compradores" + "\n" +
                                   "===================="        );
         ricknillos.owners();
-        
+
         /**
          * Calcula el numero de asistentes al concierto (excluyendo a Rick),
          * es decir, el numero de entradas vendidas.
