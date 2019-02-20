@@ -6,7 +6,6 @@ class Address {
 		this.symbol = "EZI";
 		this.addEZI = function(ezi) {
 			this.balance += ezi;
-			console.log("Balance increased by", ezi, "new balance:", this.balance);
 		}
 		this.info = function() {
 			console.log("PK = ", this.pk);

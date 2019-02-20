@@ -88,7 +88,6 @@ ricknillos.info();
 
 ricknillos.addOwner(rick.pk, ricknillos.totalSupply);
 ricknillos.addOwner(morty.pk, 0);
-console.log(ricknillos.balances);
 
 
 //verifica que Rick no se actualiza una vez que ya existe en el balance
@@ -250,20 +249,11 @@ rick.info();
 console.log("\n" + "Address de Morty" + "\n" + "===============")
 morty.info();
 
+console.log("\n");
+
 // verifica que Morty no tiene dinero para comprar una entrada
 morty.send(ricknillos, 3);
 ricknillos.balanceOf(morty.pk);
 console.log("y Rick no recibe EZI => sigue con 10:", rick.balance);
 console.log("y Rick sigue con sus 94 entradas: ")
 ricknillos.balanceOf(rick.pk);
-/*
-
-         morty.send(ricknillos, 10d);
-
-        ricknillos.owners();
-        System.out.println("Owner: " + rick.getPK().hashCode() + " " 
-                                     + ricknillos.balanceOf(rick.getPK())
-                                     + " "
-                                     + ricknillos.symbol());
-
-*/

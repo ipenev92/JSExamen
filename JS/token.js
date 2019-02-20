@@ -23,8 +23,16 @@ class TokenContract {
 		this.numOwners = function() {
 			console.log("Numero de propietarios:", Object.keys(this.balances).length);
 		}
-		this.balanceOf = function(owner) {
-			console.log("Entradas de", owner + ":", this.balances[owner], this.symbol)
+		this.balanceOf = function(person) {
+			let user = "";
+			if (person === owner.pk) {
+				user = "Rick";
+			} else if (this.balances[person] === 1) {
+				user = "Jen";
+			} else {
+				user = "Morty";
+			}
+			console.log("Entradas de", user + ":", this.balances[person], this.symbol)
 		}
 		this.transfer = function(recipient, tokens) {
 			if (this.balances[this.owner.pk] < tokens) {
