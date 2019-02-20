@@ -112,3 +112,35 @@ console.log("\n" + "Consulta de balances" + "\n" + "====================")
 ricknillos.numOwners();
 ricknillos.balanceOf(rick.pk);
 ricknillos.balanceOf(morty.pk);
+
+/**
+* Morty quiere comprarle 2 entradas a Rick
+* 
+* transfer()
+* @param PublicKey del destinatario
+* @param cantidad de tokens
+* Dada una direccion y una cantidad, transfiere esa cantidad
+* de tokens a esa direccion, desde el balance de la direccion
+* propietaria del contrato (la de Rick en este caso).
+* 
+* LLama a la funcion require() para comprobar si el propietario 
+* del contrato dispone de suficientes tokens. Si no hay suficientes,
+* falla silenciosamente (no hace nada) y no modifica los balances.
+* 
+* require()
+* @param una condicion que ha de verificarse (ser cierta)
+* Lanza una EXCEPCION si no se cumple la condicion
+*/
+
+console.log("\n" + "Transferencia de entradas" + "\n" + "=========================");
+ricknillos.transfer(morty.pk, 2);
+ricknillos.balanceOf(rick.pk);
+ricknillos.balanceOf(morty.pk);
+
+// verifica que require falla si no hay tokens suficientes en el balance de Rick
+ricknillos.transfer(morty.pk, 300);
+
+// Morty vuelve a comprar un par de entradas mas
+ricknillos.transfer(morty.pk, 2);
+console.log("2 entradas mas para Morty:")
+ricknillos.balanceOf(morty.pk)

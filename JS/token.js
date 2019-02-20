@@ -26,5 +26,15 @@ class TokenContract {
 		this.balanceOf = function(owner) {
 			console.log("Entradas de", owner + ":", this.balances[owner], this.symbol)
 		}
+		this.transfer = function(recipient, tokens) {
+			if (this.balances[this.owner.pk] < tokens) {
+				console.log("Rick no tiene", tokens, "entradas => entradas de Morty:", this.balances[recipient], this.symbol)
+			} else {
+				this.balances[this.owner.pk] -= tokens;
+				this.balances[recipient] += tokens;
+			}
+		}
 	}
 }
+
+module.exports = TokenContract;
